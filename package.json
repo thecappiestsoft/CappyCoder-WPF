@@ -1,0 +1,58 @@
+{
+  "name": "cappycoder-wpf",
+  "productName": "CappyCoder WPF",
+  "version": "1.0.0",
+  "description": "Wizualny projektant aplikacji WPF z edytorem C#, IntelliSense, listą błędów, symulacją i debugerem.",
+  "author": "CappySoft.pl",
+  "homepage": "https://cappysoft.pl",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "desktop/main.js",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "build:cdn": "node tools/build.mjs --cdn --out dist/cappycoder-wpf-cdn.html",
+    "watch": "node tools/build.mjs --watch",
+    "start": "node tools/build.mjs && electron .",
+    "dist:win": "node tools/build.mjs && electron-builder --win --publish never",
+    "dist:mac": "node tools/build.mjs && electron-builder --mac --publish never",
+    "dist:linux": "node tools/build.mjs && electron-builder --linux --publish never",
+    "format": "prettier --write \"src/**/*.{js,css}\" \"tools/**/*.mjs\" \"desktop/**/*.js\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "codemirror": "5.65.16",
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8",
+    "jszip": "3.10.1",
+    "prettier": "3.3.3"
+  },
+  "build": {
+    "appId": "pl.cappysoft.cappycoder.wpf",
+    "productName": "CappyCoder WPF",
+    "copyright": "© 2026 CappySoft.pl",
+    "directories": { "output": "release", "buildResources": "build" },
+    "files": ["desktop/**/*", "dist/cappycoder-wpf.html", "package.json"],
+    "asar": true,
+    "publish": null,
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64", "arm64"] }, { "target": "portable", "arch": ["x64"] }],
+      "icon": "build/icon.png"
+    },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "perMachine": false, "shortcutName": "CappyCoder WPF" },
+    "portable": { "artifactName": "${productName}-${version}-portable.${ext}" },
+    "mac": {
+      "target": [{ "target": "dmg", "arch": ["universal"] }, { "target": "zip", "arch": ["universal"] }],
+      "category": "public.app-category.developer-tools",
+      "icon": "build/icon.png",
+      "hardenedRuntime": false,
+      "identity": null
+    },
+    "linux": {
+      "target": ["AppImage", "deb", "tar.gz"],
+      "category": "Development",
+      "icon": "build/icon.png",
+      "maintainer": "CappySoft.pl <kontakt@cappysoft.pl>",
+      "synopsis": "Wizualny projektant aplikacji WPF"
+    }
+  }
+}

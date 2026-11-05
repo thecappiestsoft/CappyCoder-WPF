@@ -1,0 +1,116 @@
+<div id="app">
+  <header class="titlebar">
+    <div class="brand">
+      <span class="brand-logo" aria-hidden="true"></span>
+      <span>CappyCoder <b class="brand-wpf">WPF</b></span>
+    </div>
+    <nav class="menubar" id="menubar">
+      <button data-menu="file" data-en="File">Plik</button><button data-menu="edit" data-en="Edit">Edycja</button><button data-menu="view" data-en="View">Widok</button><button data-menu="project" data-en="Project">Projekt</button><button data-menu="build" data-en="Build">Kompilacja</button><button data-menu="debug" data-en="Debug">Debugowanie</button><button data-menu="help" data-en="Help">Pomoc</button>
+    </nav>
+    <div class="tb-spacer"></div>
+    <label class="projname" for="projName"><span data-en="Project">Projekt</span> <input id="projName" value="WpfApp1" spellcheck="false" autocomplete="off"></label>
+    <div class="seg lang" id="langSeg" role="group" aria-label="Język / Language"><button data-lang="pl" title="Polski">PL</button><button data-lang="en" title="English">EN</button></div>
+    <button class="iconbtn" id="themeBtn" title="Przełącz motyw jasny/ciemny" data-en-title="Toggle light/dark theme" aria-label="Przełącz motyw" data-en-aria-label="Toggle theme"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" fill="currentColor"/></svg></button>
+  </header>
+
+  <div class="toolbar" role="toolbar" aria-label="Pasek narzędzi" data-en-aria-label="Toolbar">
+    <button class="tbtn" data-act="new" title="Nowy projekt" data-en-title="New project"><svg viewBox="0 0 16 16"><path d="M3.5 1.5h6l3 3v10h-9z M9.5 1.5v3h3" fill="none" stroke="currentColor"/></svg><span class="lbl" data-en="New">Nowy</span></button>
+    <button class="tbtn" data-act="open" title="Otwórz projekt (.json, .zip, .xaml, .cs)" data-en-title="Open project (.json, .zip, .xaml, .cs)"><svg viewBox="0 0 16 16"><path d="M1.5 4.5v9h11l2-6h-11l-2 6M1.5 4.5v-2h4l1 1.5h5v3" fill="none" stroke="currentColor"/></svg><span class="lbl" data-en="Open">Otwórz</span></button>
+    <button class="tbtn" data-act="saveJson" title="Zapisz projekt do pliku (Ctrl+S)" data-en-title="Save project to a file (Ctrl+S)"><svg viewBox="0 0 16 16"><path d="M2.5 2.5h9l2 2v9h-11z M5 2.5v3.5h5v-3.5 M4.5 13.5v-4h7v4" fill="none" stroke="currentColor"/></svg><span class="lbl" data-en="Save">Zapisz</span></button>
+    <span class="sep"></span>
+    <button class="tbtn" data-act="undo" title="Cofnij (Ctrl+Z)" data-en-title="Undo (Ctrl+Z)"><svg viewBox="0 0 16 16"><path d="M5 3.5L2 6.5l3 3M2 6.5h7.5a3.5 3.5 0 0 1 0 7H7" fill="none" stroke="currentColor"/></svg></button>
+    <button class="tbtn" data-act="redo" title="Ponów (Ctrl+Y)" data-en-title="Redo (Ctrl+Y)"><svg viewBox="0 0 16 16"><path d="M11 3.5l3 3-3 3M14 6.5H6.5a3.5 3.5 0 0 0 0 7H9" fill="none" stroke="currentColor"/></svg></button>
+    <span class="sep"></span>
+    <button class="tbtn" data-act="cut" title="Wytnij (Ctrl+X)" data-en-title="Cut (Ctrl+X)"><svg viewBox="0 0 16 16"><circle cx="4.5" cy="12" r="2" fill="none" stroke="currentColor"/><circle cx="11.5" cy="12" r="2" fill="none" stroke="currentColor"/><path d="M5.8 10.5L12 2M10.2 10.5L4 2" fill="none" stroke="currentColor"/></svg></button>
+    <button class="tbtn" data-act="copy" title="Kopiuj (Ctrl+C)" data-en-title="Copy (Ctrl+C)"><svg viewBox="0 0 16 16"><rect x="5.5" y="5.5" width="8" height="9" fill="none" stroke="currentColor"/><path d="M3.5 10.5h-1v-9h8v1" fill="none" stroke="currentColor"/></svg></button>
+    <button class="tbtn" data-act="paste" title="Wklej (Ctrl+V)" data-en-title="Paste (Ctrl+V)"><svg viewBox="0 0 16 16"><path d="M5.5 2.5h-3v12h11v-12h-3 M5.5 1.5h5v2.5h-5z" fill="none" stroke="currentColor"/></svg></button>
+    <button class="tbtn" data-act="delete" title="Usuń (Delete)" data-en-title="Delete (Del)"><svg viewBox="0 0 16 16"><path d="M2.5 4h11M6 4V2.5h4V4M4 4l.8 10h6.4L12 4" fill="none" stroke="currentColor"/></svg></button>
+    <span class="sep"></span>
+    <button class="tbtn" data-act="snap" id="snapBtn" title="Przyciąganie do siatki 8 px" data-en-title="Snap to 8 px grid"><svg viewBox="0 0 16 16"><path d="M1.5 5.5h13M1.5 10.5h13M5.5 1.5v13M10.5 1.5v13" fill="none" stroke="currentColor"/></svg><span class="lbl" data-en="Grid">Siatka</span></button>
+    <span class="sep"></span>
+    <span class="cfg" title="Konfiguracja rozwiązania" data-en-title="Solution configuration">Debug · Any CPU · net10.0-windows</span>
+    <button class="tbtn run" data-act="run" title="Uruchom symulację (F5)" data-en-title="Start simulation (F5)"><svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg><span class="lbl" data-en="Start">Start</span></button>
+    <button class="tbtn" data-act="build" title="Kompiluj rozwiązanie (Ctrl+Shift+B)" data-en-title="Build solution (Ctrl+Shift+B)"><svg viewBox="0 0 16 16"><path d="M2 13.5l6-6M7 3.5l2-2 5.5 5.5-2 2zM9 5.5l-2 2" fill="none" stroke="currentColor"/></svg><span class="lbl" data-en="Build">Kompiluj</span></button>
+    <button class="tbtn" data-act="export" title="Pobierz projekt .NET do kompilacji w Visual Studio lub dotnet build" data-en-title="Download the .NET project to build in Visual Studio or with dotnet build"><svg viewBox="0 0 16 16"><path d="M8 1.5v9M4.5 7l3.5 3.5L11.5 7M2.5 11.5v3h11v-3" fill="none" stroke="currentColor"/></svg><span class="lbl" data-en="Download .zip">Pobierz .zip</span></button>
+  </div>
+
+  <div id="main">
+    <aside class="pane" id="toolbox" aria-label="Przybornik" data-en-aria-label="Toolbox">
+      <div class="pane-h" data-en="Toolbox">Przybornik</div>
+      <div class="search"><input id="tbSearch" type="search" placeholder="Szukaj w przyborniku" data-en-placeholder="Search Toolbox" aria-label="Szukaj w przyborniku" data-en-aria-label="Search Toolbox"></div>
+      <div id="tbList"></div>
+    </aside>
+    <div class="split v" data-split="left"></div>
+
+    <section id="center">
+      <div class="doctabs" id="docTabs" role="tablist"></div>
+      <div id="docArea">
+        <div class="docview" id="designView">
+          <div id="designWrap" tabindex="0" aria-label="Powierzchnia projektowa" data-en-aria-label="Design surface">
+            <div id="stage"><div id="winScale"></div><div id="overlay"></div></div>
+          </div>
+          <div class="designbar">
+            <select id="zoomSel" aria-label="Powiększenie" data-en-aria-label="Zoom"><option value="0.5">50%</option><option value="0.66">66%</option><option value="0.75">75%</option><option value="1" selected>100%</option><option value="1.25">125%</option><option value="1.5">150%</option><option value="2">200%</option><option value="fit" data-en="Fit">Dopasuj</option></select>
+            <div class="seg" id="layoutSeg"><button data-l="split" class="on" data-en="Split">Podział</button><button data-l="design" data-en="Design">Projekt</button><button data-l="xaml">XAML</button></div>
+            <span class="info" id="posInfo"></span>
+          </div>
+          <div class="split h" data-split="xaml"></div>
+          <div id="xamlPane"><div class="ed" id="xamlEd"></div></div>
+        </div>
+        <div class="docview" id="codeView" hidden>
+          <div class="codebar">
+            <select id="memberNav" aria-label="Składowe klasy" data-en-aria-label="Class members"></select>
+            <span class="hint" data-en="IntelliSense opens as you type · Ctrl+Space: completions · Ctrl+Shift+Space: parameters · F12: go to control · F9: breakpoint">IntelliSense otwiera się podczas pisania · Ctrl+Spacja — podpowiedzi · Ctrl+Shift+Spacja — parametry · F12 — przejdź do kontrolki · F9 — punkt przerwania</span>
+          </div>
+          <div class="edhost"><div id="codeEd"></div></div>
+        </div>
+        <div class="docview" id="fileView" hidden>
+          <div class="codebar"><span id="fileInfo" style="font-size:12px;color:var(--muted)"></span></div>
+          <div class="edhost"><div id="fileEd"></div></div>
+        </div>
+      </div>
+      <div class="split h" data-split="bottom"></div>
+      <div class="pane" id="bottom">
+        <div class="ptabs" id="botTabs">
+          <button data-b="errs" class="on"><span data-en="Error List">Lista błędów</span> <span class="chip e" id="cntE">0</span> <span class="chip w" id="cntW">0</span></button>
+          <button data-b="out" data-en="Output">Dane wyjściowe</button>
+          <button data-b="locals" data-en="Locals">Zmienne lokalne</button>
+          <button data-b="stack" data-en="Call Stack">Stos wywołań</button>
+        </div>
+        <div class="body" id="errBody"></div>
+        <div class="body" id="outBody" hidden><pre id="outPre"></pre></div>
+        <div class="body" id="locBody" hidden><p class="dbg-empty" data-en="Set a breakpoint (F9 or click the margin next to a line number) and start debugging (F5). When the program stops, the variables appear here.">Ustaw punkt przerwania (F9 albo kliknięcie marginesu obok numeru wiersza) i uruchom debugowanie (F5). Gdy program się zatrzyma, tutaj pojawią się zmienne.</p></div>
+        <div class="body" id="stackBody" hidden></div>
+      </div>
+    </section>
+
+    <div class="split v" data-split="right"></div>
+    <aside id="right">
+      <div class="pane" id="solPane">
+        <div class="ptabs" id="solTabs"><button data-s="sol" class="on" data-en="Solution Explorer">Eksplorator rozwiązań</button><button data-s="outline" data-en="Document Outline">Konspekt dokumentu</button></div>
+        <div id="solBody"></div>
+        <div class="solbtns" id="solBtns">
+          <button class="btn" data-act="addClass"><svg viewBox="0 0 16 16"><path d="M8 3v10M3 8h10" stroke="currentColor" fill="none"/></svg><span data-en="Class">Klasa</span></button>
+          <button class="btn" data-act="nuget"><svg viewBox="0 0 16 16"><rect x="2.5" y="2.5" width="11" height="11" rx="2" fill="none" stroke="currentColor"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/><circle cx="10" cy="10" r="2" fill="none" stroke="currentColor"/></svg>NuGet</button>
+          <button class="btn" data-act="addDll"><svg viewBox="0 0 16 16"><path d="M4 2.5h5.5l3 3v8h-8.5z" fill="none" stroke="currentColor"/><path d="M6 9h4M8 7v4" stroke="currentColor"/></svg><span data-en=".dll reference">Odwołanie .dll</span></button>
+        </div>
+      </div>
+      <div class="split h" data-split="rightsplit"></div>
+      <div class="pane" id="propPane">
+        <div class="pane-h"><span data-en="Properties">Właściwości</span><span class="grow"></span></div>
+        <div class="namerow">
+          <label for="pName" data-en="Name">Nazwa</label><input id="pName" spellcheck="false" autocomplete="off">
+          <label data-en="Type">Typ</label><span class="ty" id="pType">Window</span>
+        </div>
+        <div class="ptabs" id="propTabs"><button data-p="props" class="on" data-en="Properties">Właściwości</button><button data-p="events" data-en="Events">Zdarzenia</button></div>
+        <div class="search" style="margin:6px 8px"><input id="propSearch" type="search" placeholder="Szukaj właściwości" aria-label="Szukaj" data-en-aria-label="Search"></div>
+        <div id="propBody"></div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="statusbar"><span class="grow" id="status">Gotowe</span><span id="stSel"></span><span id="stPos"></span><span class="copy">© 2026 CappySoft.pl</span></footer>
+</div>
+<div id="runLayer" hidden></div>
+<input type="file" id="fileIn" hidden multiple accept=".json,.zip,.xaml,.cs">
+<input type="file" id="assetIn" hidden>
